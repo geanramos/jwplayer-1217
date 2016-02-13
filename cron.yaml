@@ -1,0 +1,4 @@
+cron:
+- description: every two hour webpagetest run
+  url: /cron
+  schedule: every 2 hours
