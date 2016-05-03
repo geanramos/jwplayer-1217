@@ -3,12 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>JW Player Test Page</title>
+        <title>JW Player Test Page - Flash</title>
     </head>
     <body>
         <h1>
 		<?php
-		echo "JW Player Test Page";
+		echo "JW Player Test Page - Flash";
 		?>
 	</h1>
 		

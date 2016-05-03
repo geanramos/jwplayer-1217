@@ -11,6 +11,8 @@ handlers:
 
 - url: /cron
   script: cron.php
-- url: .*
-  script: main.php
+- url: /flash
+  script: flash.php
+- url: /html5
+  script: html5.php
 
