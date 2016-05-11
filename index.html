@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>listing directory /</title>
+  <style>* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+  }
+
+  body {
+    padding: 80px 100px;
+    font: 13px "Helvetica Neue", "Lucida Grande", "Arial";
+    background: #ECE9E9 -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#ECE9E9));
+    background: #ECE9E9 -moz-linear-gradient(top, #fff, #ECE9E9);
+    background-repeat: no-repeat;
+    color: #555;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 {
+    font-size: 22px;
+    color: #343434;
+  }
+  h1 em, h2 em {
+    padding: 0 5px;
+    font-weight: normal;
+  }
+  h1 {
+    font-size: 60px;
+  }
+  h2 {
+    margin-top: 10px;
+  }
+  h3 {
+    margin: 5px 0 10px 0;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+    font-size: 18px;
+  }
+  ul li {
+    list-style: none;
+  }
+  ul li:hover {
+    cursor: pointer;
+    color: #2e2e2e;
+  }
+  p {
+    line-height: 1.5;
+  }
+  a {
+    color: #555;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #303030;
+  }
+  ul#files {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  ul#files li {
+    width: 30%;
+    line-height: 25px;
+    margin: 1px;
+  }
+  ul#files li a {
+    display: block;
+    height: 25px;
+    border: 1px solid transparent;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  ul#files li a:focus,
+  ul#files li a:hover {
+    background: rgba(255,255,255,0.65);
+    border: 1px solid #ececec;
+  }
+  /*views*/
+  #files span {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-indent: 10px;
+  }
+  #files .name {
+    background-repeat: no-repeat;
+  }
+  #files .icon .name {
+    text-indent: 28px;
+  }
+
+  /*tiles*/
+  .view-tiles .name {
+    width: 100%;
+    background-position: 8px 5px;
+  }
+  /*details*/
+  ul#files.view-details li {
+    float: none;
+    display: block;
+    width: 90%;
+  }
+  .view-details .name {
+    width: 60%;
+    background-position: 8px 5px;
+  }
+  }
+  </style>
+  <meta name="description" content="The HTML5 Herald">
+</head>
+
+<body>
+  <ul id="files" class="view-tiles">
+    <li><a href="flash" class="" title="flash"><span class="name">flash</span></a></li>
+    <li><a href="html5" class="" title="html5"><span class="name">html5</span></a></li>
+    <li><a href="mp4" class="" title="mp4"><span class="name">mp4</span></a></li>
+  </ul>
+</body>
+</html>
