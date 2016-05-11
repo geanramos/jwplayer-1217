@@ -43,11 +43,15 @@
   </script>
   <script src="//content.jwplatform.com/players/<?php echo $mediaid;?>-<?php echo $playerid;?>.js"></script>
   <script>
+  (function() {
     var embedTime = performance.now() - startTime;
     console.timeEnd('load-embed');
     console.time('setup');
     var jwVersion = jwplayer.version.split('+')[0];
-    var playerEventLabel = '<?php echo $mediaid;?>-<?php echo $playerid;?>-' + jwVersion;
+    var config = jwplayer().getConfig();
+    var mediaType = config.playlist[0].sources[0].type;
+    var playerEventLabel = `primary-${config.primary||"none"}-${mediaType}-${jwVersion}`;
+    var timeSinceScriptEmbed;
 
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -55,6 +59,7 @@
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
     ga('create', 'UA-49334106-2', 'auto');
     ga('send', 'pageview');
+
     ga('send', 'event', 'player-metric', 'embed', 'platform-load-and-embed-time-' + playerEventLabel, embedTime);
 
     jwplayer()
@@ -63,6 +68,10 @@
       console.timeEnd('setup');
       //ga('send', 'event', [eventCategory], [eventAction], [eventLabel], [eventValue], [fieldsObject]);
       ga('send', 'event', 'player-metric', 'setup', 'player-setup-time-' + playerEventLabel, event.setupTime);
+
+      // Legacy metric measured from time before platform one-line embed
+      timeSinceScriptEmbed = performance.now() - startTime;
+      ga('send', 'event', 'legacy-metric', 'total-setup-time', 'total-setup-time-' + playerEventLabel, timeSinceScriptEmbed);
 
       document.getElementById('platform-load-and-embed-time').textContent = embedTime.toFixed(1);
       document.getElementById('player-setup-time').textContent = event.setupTime;
@@ -77,13 +86,18 @@
       console.timeEnd('load-video');
       ga('send', 'event', 'player-metric', 'first-frame', 'player-first-frame-time-' + playerEventLabel, event.loadTime);
 
+      // Legacy metric measured from time before platform one-line embed
+      timeSinceScriptEmbed = performance.now() - startTime;
+      ga('send', 'event', 'legacy-metric', 'total-time-to-first-frame', 'total-time-to-first-frame-' + playerEventLabel, timeSinceScriptEmbed);
+
       var video = document.getElementsByTagName('video')[0];
       var currentTimeMS = (video ? (video.currentTime) : this.getPosition()) * 1000;
-      ga('send', 'event', 'player-metric', 'current-time', 'player-first-frame-past-' + playerEventLabel, currentTimeMS);
+      ga('send', 'event', 'provider-metric', 'current-time', 'player-first-frame-past-' + playerEventLabel, currentTimeMS);
 
       document.getElementById('player-first-frame-time').textContent = event.loadTime;
       document.getElementById('player-first-frame-past').textContent = currentTimeMS;
     });
+  })();
   </script>
 </body>
 </html>
