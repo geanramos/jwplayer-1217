@@ -18,5 +18,9 @@ handlers:
   script: platform.php #?mediaid=sYKZyjxB&playerid=keStX2EI
 - url: /html5
   script: platform.php #?mediaid=sYKZyjxB&playerid=WbTtnKtI
+- url: /dash
+  script: platform.php #?mediaid=V3D2hVQR&playerid=WbTtnKtI
 - url: /mp4
   script: platform.php #?mediaid=n1viIetj&playerid=WbTtnKtI
+- url: /cdn-mp4
+  script: player.php #?mediaid=n1viIetj&playerid=WbTtnKtI

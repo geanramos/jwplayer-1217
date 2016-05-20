@@ -48,6 +48,8 @@
 	for ($i = 0; $i < $location_count; $i++) {
 		runTest('flash', $client, $locations[$i]);
 		runTest('html5', $client, $locations[$i]);
+		runTest('dash', $client, $locations[$i]);
 		runTest('mp4', $client, $locations[$i]);
+		runTest('cdn-mp4', $client, $locations[$i]);
 	}
 ?>
